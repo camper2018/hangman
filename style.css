@@ -3,6 +3,19 @@ body {
   padding: 0;
   background-color: whitesmoke;
 }
+/* .stopwatch-container {
+  height: 30px;
+  width: 30%;
+  background: yelow;
+} */
+#display {
+  height: 30px;
+  width: 20%;
+  font-size: 22px;
+  text-align: 'center';
+  margin: 20px 10px 0 20px ;
+  padding: 5px;
+}
 header {
   min-width:400px;
   margin: 0 auto;
