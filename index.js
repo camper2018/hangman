@@ -14,7 +14,7 @@ $(function(){
   };
   var dictionary = {
     fruits: ["custardapple","apple","banana","pear","watermelon","mango","persimmon","grapes","grapefruit","pomegranate","pineapple","papaya","lemon","peach","apricot","plum","blueberries","coconut","kiwi","cranberry","orange"],
-    animals: ["cow","cat","goat","dog","bird","bear","fish","lion","tiger","wolf","elephant","turtle","frog","monkey","fox","horse","deer","pig","dolphin","giraffe","zebra","roaster","hippopotamus","rhinoceros"],
+    animals: ["cow","cat","goat","dog","bird","bear","fish","lion","tiger","wolf","elephant","turtle","frog","monkey","fox","horse","deer","pig","dolphin","giraffe","zebra","rooster","hippopotamus","rhinoceros"],
     vegetables: [ "cucumbers","celery","lettuce","cabbage","garlic","avacado","carrot","spinach","broccoli","onions","radish","potato","pumpkin","pepper","ginger","peas","corn","zucchini","okra","squash"],
     transportation: ["car","bus","truck","helicopter","airplane","scooter","bicycle","sailboat","train","van","subway","bart","lighttrain","spaceship","rocket","tricycle","tram","rikshaw"],
     gaming: [ "nintendo","playstation","shulk", "xbox","switch","joycon","controller","combo","mario","cloud","luigi","peach","bayonetta","roy","chrom","ike","marth","corrin","bowser","ds","wii","gamecube","smash","sonic","donkeykong","link","samus","yoshi","kirby","fox","ness","captainfalcon","jigglypuff", "rob", "daisy", "bowser", "pikachu", "squirtle", "ivysaur", "charizard", "pichu", "richu","lucina","atari","pokemontrainer"]
@@ -75,6 +75,8 @@ $(function(){
     if (correct !== 0 && correct === word.length){
       $('p').text('You Guessed it!');
       $('#start').text('Restart');
+      var audio = $("#music")[0];
+      audio.pause();
       disable();
     } else if (incorrect === 10) {
       $('p').text('Sorry! your tries are over!');
@@ -83,6 +85,8 @@ $(function(){
       });
       $('#start').text('Restart');
       disable();
+      var audio = $("#music")[0];
+      audio.pause();
     }
   }
   // game starts here
@@ -96,6 +100,10 @@ $(function(){
       $('p').text('');
       enable();
       word = chooseCategory();
+      var audio = $("#music")[0];
+      audio.currentTime = 0;
+      audio.play();
+
     });
     $('#enter').click(function(e) {
       var letter = $('#input').val();
