@@ -3,37 +3,32 @@
   <meta charset="utf-8" lang="en">
   <title>Hangman game</title>
   <link href="style.css" rel="stylesheet">
-  <!-- <embed src="AEWHangman Adam Page Theme Song - Ghost Town Triumph by Vincent Pedulla.mp3" width="500" height="900" loop="true" autostart="true" Hidden="true" /> -->
-
-  <audio id="sound3" controls hidden preload="auto">
-    <source src="Mario die sound effect.mp3" type="audio/mpeg">
+  <audio id="sound1" controls hidden preload="auto">
+      <source src="audio/Children Yay! Sound Effect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  <audio id="sound2" controls hidden preload="auto">
+    <source src="audio/Fail Sound Effect.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
-  <audio id="sound2" controls hidden preload="auto">
-    <source src="Fail Sound Effect.mp3" type="audio/mpeg">
+  <audio id="sound3" controls hidden preload="auto">
+    <source src="audio/Mario die sound effect.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+  <audio id="music" controls hidden loop preload="auto">
+    <source src="audio/AEWHangman Adam Page Theme Song - Ghost Town Triumph by Vincent Pedulla.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
   <audio id="music2" controls hidden loop preload="auto">
-    <source src="Fail Sound - Free Sound Effect.mp3" type="audio/mpeg">
+    <source src="audio/Fail Sound - Free Sound Effect.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
-
 </head>
 <body>
-  <!-- <div class="stopwatch-container"> -->
-    <div id="display">
-      00: 00: 00
-    </div>
-  <!-- </div> -->
+  <div id="display">
+    00: 00: 00
+  </div>
   <header>
-    <audio id="music" controls hidden loop preload="auto">
-      <source src="AEWHangman Adam Page Theme Song - Ghost Town Triumph by Vincent Pedulla.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="sound1" controls hidden preload="auto">
-      <source src="Children Yay! Sound Effect.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
     <h1>Hangman Game</h1>
     <button id="start" id="restart">Start Game</button>
     <div class="category"></div>

@@ -6,17 +6,19 @@ $(function(){
   var hours = 0;
   var seconds = 0;
   var minutes = 0;
-  var interval = null;
+  // var interval = null;
 
   // changes the text of <p> and restarts the game
   function restart(txt) {
     clearInterval(interval);
     $('p').text(txt);
+    disable();
     $('#start').text('Restart');
     var audio = $("#music")[0];
     audio.pause();
-    disable();
-
+    setTimeout(()=> {
+      $("#start").attr('disabled', false);
+    },5000);
   }
   function stopwatch() {
     seconds++;
@@ -152,6 +154,7 @@ $(function(){
       chars = {};
       seconds = 0;
       minutes = 0;
+      // interval = null;
       $('.container').html('');
       $('.incorrect').html('');
       $('p').text('Hurry! you have 2 minutes to guess');
@@ -163,6 +166,7 @@ $(function(){
       interval = window.setInterval(stopwatch, 1000);
       var audio2 = $("#music2")[0];
       audio2.pause();
+      $("#start").attr('disabled', true);
     });
     $('#enter').click(function(e) {
       var letter = $('#input').val();
