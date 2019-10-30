@@ -6,20 +6,26 @@ $(function(){
   var hours = 0;
   var seconds = 0;
   var minutes = 0;
-  // var interval = null;
 
   // changes the text of <p> and restarts the game
   function restart(txt) {
+    //stops timer
     clearInterval(interval);
     $('p').text(txt);
+    // blocks the input when game is over
     disable();
+    // start button is replaced with restart
     $('#start').text('Restart');
+    // stops playing background music
     var audio = $("#music")[0];
     audio.pause();
+    // enables start button after a dalay to avoid mixing of different musics.
     setTimeout(()=> {
       $("#start").attr('disabled', false);
     },5000);
   }
+
+  // sets a timer
   function stopwatch() {
     seconds++;
     if (seconds / 60 === 1) {
@@ -35,17 +41,20 @@ $(function(){
     } else {
       $('#display').text(`00: ${minutes} : ${seconds}`);
     }
+    // After 2 minutes, the game is over
     if (minutes === 2) {
       restart('Oops! You ran out of time');
+      // plays sound effect for game over
       var audio = $("#sound3")[0];
       audio.play();
+      // displays guessing word
       word.split("").forEach(function(char, i) {
         $(`#${i}`).text(char);
       });
-      // var audio2 = $("#music2")[0];
-      // setTimeout(audio2.play, 3000);
+      // plays game ending music after a delay when the sound effect is finished running.
       setTimeout(()=> {
         var audio2 = $("#music2")[0];
+        // restarts the music from the beginning
         audio2.currentTime = 0;
         audio2.play();
       }, 4000);
@@ -74,18 +83,18 @@ $(function(){
     var category = categories[categoryIdx];
     var categoryList = dictionary[category];
     word = categoryList[Pickrandom(0, categoryList.length-1)];
+    // displays blanks according to the word length
     for(var i = 0; i < word.length; i++) {
       var $div = $("<div class='blanks'></div>");
       $div.attr('id', `${i}`);
       $('.container').append($div);
     }
+    // displays category and returns the randomly chosen word
     $('.category').html('The category is ' + category);
-    console.log("The category is " + category);
-    console.log("There are " + word.length + " letters");
-    console.log("The word is " + word)
     return word;
   };
-  function hangman(input) {
+
+  function playHangman(input) {
     // check if input is a letter from A-Z and if it has not already entered before, then add input as a property to chars object
     input = input.toLowerCase();
     if (chars[input]=== undefined && input.charCodeAt() >= 97 && input.charCodeAt()<=122 && input.length === 1) {
@@ -109,12 +118,14 @@ $(function(){
       }
     }
   }
-  // To disable and enable the <input> after game over
+  // To disable and enable the input after game over
   function disable() {
     $('#input').prop('disabled', true);
+    $('#enter').prop('disabled', true);
    }
   function enable() {
     $('#input').prop('disabled', false);
+    $('#enter').prop('disabled', false);
   }
 
   function checkForWin() {
@@ -123,8 +134,6 @@ $(function(){
       restart('You Guessed it!');
       var audio = $("#sound1")[0];
       audio.play();
-      //var audio2 = $("#music2")[0];
-      // audio2.play();
       setTimeout(()=> {
         var audio2 = $("#music2")[0];
         audio2.currentTime = 0;
@@ -137,8 +146,6 @@ $(function(){
       restart('Sorry! your tries are over!');
       var audio = $("#sound2")[0];
       audio.play();
-      //var audio2 = $("#music2")[0];
-      // audio2.play();
       setTimeout(()=> {
         var audio2 = $("#music2")[0];
         audio2.currentTime = 0;
@@ -148,30 +155,39 @@ $(function(){
   }
   // game starts here
   $(document).ready(function() {
+    // when start or restart button clicked, resets the variables and display text
     $("#start").click(function(e) {
       correct = 0;
       incorrect = 0;
       chars = {};
       seconds = 0;
       minutes = 0;
-      // interval = null;
       $('.container').html('');
       $('.incorrect').html('');
       $('p').text('Hurry! you have 2 minutes to guess');
+      // enables input box and enter buttons
       enable();
+      // randomly selects a category and returns a word
       word = chooseCategory();
+      // resets and plays background music
       var audio = $("#music")[0];
       audio.currentTime = 0;
       audio.play();
+      // runs timer by invoking stopwatch() every 1 second and increments the time in seconds.
       interval = window.setInterval(stopwatch, 1000);
+      //stops/ pauses the game over music on restart
       var audio2 = $("#music2")[0];
       audio2.pause();
+      // disables start/ restart button
       $("#start").attr('disabled', true);
     });
     $('#enter').click(function(e) {
       var letter = $('#input').val();
+      // clears the input
       $('#input').val('');
-      hangman(letter);
+      // playHangman() checks for correct / incorrect response/letter and displays accordingly
+      playHangman(letter);
+      // checks for correct word guess after every response entry and declares winning if guessed or displays correct word if failed to guess after 10 tries.
       checkForWin();
 
     });
