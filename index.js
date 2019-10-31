@@ -42,7 +42,7 @@ $(function(){
       $('#display').text(`00: ${minutes} : ${seconds}`);
     }
     // After 2 minutes, the game is over
-    if (minutes === 1) {
+    if (minutes === 2) {
       restart('Oops! You ran out of time');
       // plays sound effect for game over
       var audio = $("#sound3")[0];
@@ -165,7 +165,7 @@ $(function(){
       minutes = 0;
       $('.container').html('');
       $('.incorrect').html('');
-      $('p').text('Hurry! you have only one minute to guess');
+      $('p').text('Hurry! you have only two minutes to guess');
       // enables input box and enter buttons
       enable();
       // randomly selects a category and returns a word
