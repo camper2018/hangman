@@ -1,51 +1,54 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8" lang="en">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hangman game</title>
-  <link href="style.css" rel="stylesheet">
-  <audio id="sound1" controls hidden preload="auto">
-      <source src="audio/Children Yay! Sound Effect.mp3" type="audio/mpeg">
+<html>
+  <head>
+    <meta charset="utf-8" lang="en">
+    <meta name="description" content="single player hangman game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hangman game</title>
+    <link href="style.css" rel="stylesheet">
+    <audio id="sound1" controls hidden preload="auto">
+        <source src="audio/Children Yay! Sound Effect.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+    <audio id="sound2" controls hidden preload="auto">
+      <source src="audio/Fail Sound Effect.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-  <audio id="sound2" controls hidden preload="auto">
-    <source src="audio/Fail Sound Effect.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-  <audio id="sound3" controls hidden preload="auto">
-    <source src="audio/Mario die sound effect.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-  <audio id="music" controls hidden loop preload="auto">
-    <source src="audio/AEWHangman Adam Page Theme Song - Ghost Town Triumph by Vincent Pedulla.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-  <audio id="music2" controls hidden loop preload="auto">
-    <source src="audio/Fail Sound - Free Sound Effect.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-</head>
-<body>
-  <div class="timer-container">
-    <div class="timer">
-      00: 00: 00
+    <audio id="sound3" controls hidden preload="auto">
+      <source src="audio/Mario die sound effect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="music" controls hidden loop preload="auto">
+      <source src="audio/AEWHangman Adam Page Theme Song - Ghost Town Triumph by Vincent Pedulla.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="music2" controls hidden loop preload="auto">
+      <source src="audio/Fail Sound - Free Sound Effect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  </head>
+  <body>
+    <div class="timer-container">
+      <div class="timer">
+        00: 00: 00
+      </div>
     </div>
-  </div>
-  <header>
-    <h1>Hangman Game</h1>
-    <button id="start" id="restart">Start Game</button>
-    <div class="category-display"></div>
-  </header>
-  <!-- <div class="container input-container"></div> -->
-  <div class="blanks-container input-container"></div>
-  <div class="incorrect input-container"></div>
-  <p></p>
-  <div class="input-container">
-    <div >
-      <input type="text"id="input">
-      <button id="enter">Enter</button>
+    <header>
+      <h1>Hangman Game</h1>
+      <button id="start" id="restart">Start Game</button>
+      <div class="category-display"></div>
+    </header>
+    <!-- <div class="container input-container"></div> -->
+    <div class="blanks-container input-container"></div>
+    <div class="incorrect input-container"></div>
+    <p></p>
+    <div class="input-container">
+      <div >
+        <input type="text"id="input">
+        <button id="enter">Enter</button>
+      </div>
     </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="./index.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
