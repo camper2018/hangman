@@ -7,7 +7,6 @@ body {
 .timer-container {
   display: flex;
   height: 30px;
-  width: 30%;
   margin-left: 20px;
   margin-top: 20px;
   flex-direction: row;
@@ -31,6 +30,7 @@ header {
 h1 {
   color: green;
   font-size: 45px;
+  /* font-size: 2.8em; */
   padding: 10px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
