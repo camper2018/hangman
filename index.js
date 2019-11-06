@@ -33,13 +33,13 @@ $(function(){
         seconds = 0;
     }
     if (seconds < 10 && minutes < 10) {
-      $('#display').text(`00: 0${minutes} : 0${seconds}`);
+      $('.timer').text(`00: 0${minutes} : 0${seconds}`);
     } else if (seconds < 10) {
-      $('#display').text(`00: ${minutes} : 0${seconds}`);
+      $('.timer').text(`00: ${minutes} : 0${seconds}`);
     } else if (minutes < 10) {
-      $('#display').text(`00: 0${minutes} : ${seconds}`);
+      $('.timer').text(`00: 0${minutes} : ${seconds}`);
     } else {
-      $('#display').text(`00: ${minutes} : ${seconds}`);
+      $('.timer').text(`00: ${minutes} : ${seconds}`);
     }
     // After 2 minutes, the game is over
     if (minutes === 2) {
@@ -88,10 +88,10 @@ $(function(){
     for(var i = 0; i < word.length; i++) {
       var $div = $("<div class='blanks'></div>");
       $div.attr('id', `${i}`);
-      $('.container').append($div);
+      $('.blanks-container').append($div);
     }
     // displays category and returns the randomly chosen word
-    $('.category').html('The category is ' + category);
+    $('.category-display').html('The category is ' + category);
     return word.toLowerCase();
   };
 
@@ -163,7 +163,7 @@ $(function(){
       chars = {};
       seconds = 0;
       minutes = 0;
-      $('.container').html('');
+      $('.blanks-container').html('');
       $('.incorrect').html('');
       $('p').text('Hurry! you have only two minutes to guess');
       // enables input box and enter buttons
