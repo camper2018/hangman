@@ -114,6 +114,8 @@ $(function(){
         var $span = $('<span></span>');
         $span.html(`${input}`);
         $('.incorrect').append($span);
+        $('.incorrect').append('&nbsp;&nbsp');
+
         incorrect++;
         $('#input').val('');
       }

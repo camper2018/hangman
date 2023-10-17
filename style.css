@@ -2,7 +2,11 @@
   box-sizing: border-box;
 }
 body {
+  /* background-image: url("./background-hangman.jpeg"); */
   background-image: url("./background-img.jpg");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-attachment: fixed;
   margin: 0 auto;
   padding: 10px;
 }
@@ -20,12 +24,13 @@ body {
   font-size: 22px;
   margin: 10px auto, 0;
   padding: 5px;
+  color: white;
 }
 
 header {
   min-width:400px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 200px;
   width: 50%;
   text-align: center;
 }
@@ -58,7 +63,8 @@ button:hover {
   margin-bottom: 0;
   padding: 10px;
   padding-bottom: 0;
-  font-size: 20px;
+  font-size: 25px;
+
 }
 
 .input-container {
@@ -89,7 +95,7 @@ button:hover {
   margin-bottom: 0;
   width: 40%;
   font-size:25px;
-  color: tomato;
+  color: orange;
 }
 
 /* line that displays winning or loosing status */
